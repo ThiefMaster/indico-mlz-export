@@ -1,6 +1,18 @@
-# pyproject.toml
+[project]
+name = 'indico-mlz-export'
+dynamic = ['version']
+dependencies = ['indico>=3.3.3']
+
+[project.entry-points.'indico.plugins']
+mlz_export = 'indico_mlz_export.plugin:MLZExporterPlugin'
+
 [build-system]
-requires = ["setuptools>=39", "setuptools_scm[toml]>=3.4"]
+requires = ['setuptools>=72', 'setuptools_scm[toml]>=3.4']
 build-backend = 'setuptools.build_meta'
+
+[tool.setuptools]
+packages = ['indico_mlz_export']
+include-package-data = true
+
 [tool.setuptools_scm]
-write_to = "indico_mlz_export/version.py" 
+write_to = 'indico_mlz_export/version.py'
